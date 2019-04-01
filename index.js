@@ -40,9 +40,9 @@ function handleCommand(payload) {
   let getHistory = axios.post('https://slack.com/api/channels.history', params);
   
   //error handling on request    
-  let handleErrorResponse = result => {
-    if (!result.data.ok) {
-      return Promise.reject(`Slack API returned a failure result for channels.history: ${JSON.stringify(result.data)}`);
+ // let handleErrorResponse = result => {
+ //   if (!result.data.ok) {
+ //     return Promise.reject(`Slack API returned a failure result for channels.history: ${JSON.stringify(result.data)}`);
 
   // build the triage report
   let buildReport = result => Promise.resolve( triage(payload, result.data.messages || []) );
